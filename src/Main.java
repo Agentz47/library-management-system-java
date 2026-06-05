@@ -1,0 +1,128 @@
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
+        // to see how IntelliJ IDEA suggests fixing it.
+        Library library = new Library();
+
+        Book book1 =
+                new Book(
+                1,
+                "Atomic Habits",
+                "James Clear"
+        );
+
+        Book book2 =
+                new Book(
+                2,"Rich Dad Poor Dad",
+                        "Robert Kiyosaki"
+        );
+
+
+        library.addBook(book1);
+        library.addBook(book2);
+
+        Scanner scanner = new Scanner(System.in);
+
+        boolean running = true;
+
+        while (running) {
+
+            System.out.println("\n==== LIBRARY MENU ====");
+            System.out.println("1. Add Book");
+            System.out.println("2. View Books");
+            System.out.println("3. Search Books");
+            System.out.println("4. Update Book");
+            System.out.println("5. Delete Book");
+            System.out.println("6. Exit");
+
+            System.out.println("Enter choice: ");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+
+                case 1:
+
+                    System.out.println("Enter Book ID: ");
+                    int id = scanner.nextInt();
+                    scanner.nextLine();
+
+                    System.out.println("Enter Title: ");
+                    String title = scanner.nextLine();
+
+                    System.out.println("Enter Author: ");
+                    String author = scanner.nextLine();
+
+                    Book newBook = new Book(id, title, author);
+
+                    library.addBook(newBook);
+
+                    System.out.println("Book Added Successfully!");
+                    break;
+
+                case 2:
+
+                    library.displayAllBooks();
+
+                    break;
+
+                case 3:
+
+                    System.out.println("Enter book title: ");
+
+                    String searchTitle = scanner.nextLine();
+
+                    library.searchBook(searchTitle);
+
+                    break;
+
+                case 4:
+
+                    System.out.print("Enter Book ID: ");
+
+                    int updateId = scanner.nextInt();
+                    scanner.nextLine();
+
+                    System.out.print("Enter New Title: ");
+                    String newTitle = scanner.nextLine();
+
+                    System.out.print("Enter New Author: ");
+                    String newAuthor = scanner.nextLine();
+
+                    library.updateBook(
+                            updateId,
+                            newTitle,
+                            newAuthor
+                    );
+
+                    break;
+
+                case 5:
+
+                    System.out.println("Enter Book ID to Delete: ");
+
+                    int deleteID = scanner.nextInt();
+                    scanner.nextLine();
+
+                    library.deleteBook(deleteID);
+
+                    break;
+
+                case 6:
+                    System.out.println("Goodbye!");
+
+                    running = false;
+
+                    break;
+
+                default:
+
+                    System.out.println("Invalid Choice!");
+            }
+        }
+    }
+}
