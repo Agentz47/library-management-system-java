@@ -1,28 +1,44 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import model.Book;
+import service.Library;
+import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 public class Main {
     public static void main(String[] args) {
+
+        try {
+
+            BufferedReader reader =
+                    new BufferedReader(
+                            new FileReader("books.txt")
+                    );
+
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+
+                //System.out.println(line);
+
+            }
+
+            reader.close();
+
+        } catch (IOException e) {
+
+            System.out.println("Error Reading File");
+
+        }
+
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
         Library library = new Library();
+        library.loadBooksFromFile();
 
-        Book book1 =
-                new Book(
-                1,
-                "Atomic Habits",
-                "James Clear"
-        );
-
-        Book book2 =
-                new Book(
-                2,"Rich Dad Poor Dad",
-                        "Robert Kiyosaki"
-        );
-
-
-        library.addBook(book1);
-        library.addBook(book2);
 
         Scanner scanner = new Scanner(System.in);
 
@@ -40,8 +56,22 @@ public class Main {
 
             System.out.println("Enter choice: ");
 
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+            int choice;
+
+            try {
+
+                choice = scanner.nextInt();
+                scanner.nextLine();
+
+            } catch (InputMismatchException e) {
+
+                System.out.println("Please enter a number!");
+
+                scanner.nextLine();
+
+                continue;
+            }
+            //scanner.nextLine();
 
             switch (choice) {
 

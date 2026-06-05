@@ -1,6 +1,6 @@
-# Library Management System (Java)
+# service.Library Management System (Java)
 
-A console-based Library Management System built using Java and Object-Oriented Programming principles.
+A console-based service.Library Management System built using Java and Object-Oriented Programming principles.
 
 ## Features
 
@@ -28,6 +28,10 @@ A console-based Library Management System built using Java and Object-Oriented P
 - IntelliJ IDEA
 - Git
 - GitHub
+
+## Screenshot
+
+![service.Library Menu](screenshots/library-menu.png)
 
 ## Author
 

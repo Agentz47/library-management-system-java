@@ -1,3 +1,5 @@
+package model;
+
 public class Book {
 
     // ENCAPSULATED WITH PRIVATE
