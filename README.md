@@ -4,11 +4,14 @@ A console-based service.Library Management System built using Java and Object-Or
 
 ## Features
 
-- Add Books
+- Add Book
 - View Books
 - Search Books
 - Update Books
 - Delete Books
+- File Persistence
+- Input Validation
+- Exception Handling
 
 ## Concepts Used
 
