@@ -55,11 +55,25 @@ public class Library {
 
     }
 
+
+    public boolean idExists(int id) {
+
+        for (Book book : books) {
+
+            if (book.getId() == id) {
+                return true;
+            }
+
+        }
+
+        return false;
+    }
     public void addBook(Book book) {
 
         books.add(book);
 
         saveBooksToFile();
+
     }
 
     public void saveBooksToFile() {
@@ -103,13 +117,13 @@ public class Library {
         for (Book book : books) { // LOOP Look at every book.
             if (book.getTitle().equalsIgnoreCase(title)) { // CONDITION
 
-                System.out.println("model.Book Found!");
+                System.out.println("Book Found!");
                 book.displayBook();
                 return; // STOP SEARCHING, EXIT THE METHOD
             }
         }
 
-        System.out.println("model.Book Not Found!");
+        System.out.println("Book Not Found!");
     }
 
     public void deleteBook(int id) {
@@ -129,11 +143,11 @@ public class Library {
 
             books.remove(bookToDelete);
             saveBooksToFile();
-            System.out.println("model.Book Deleted Successfully!");
+            System.out.println("Book Deleted Successfully!");
 
         } else {
 
-            System.out.println("model.Book Not Found!");
+            System.out.println("Book Not Found!");
         }
     }
 
@@ -147,12 +161,12 @@ public class Library {
                 book.setAuthor(newAuthor);
                 saveBooksToFile();
 
-                System.out.println("model.Book Updated Successfully!");
+                System.out.println("Book Updated Successfully!");
 
                 return;
             }
         }
 
-            System.out.println("model.Book Not Found!");
+            System.out.println("Book Not Found!");
     }
 }

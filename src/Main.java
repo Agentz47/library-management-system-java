@@ -77,15 +77,43 @@ public class Main {
 
                 case 1:
 
+
                     System.out.println("Enter Book ID: ");
                     int id = scanner.nextInt();
                     scanner.nextLine();
+                    if (id <= 0) {
+
+                        System.out.println("ID must be greater than 0!");
+
+                        break;
+                    }
+
+                    if (library.idExists(id)) {
+
+                        System.out.println("Book ID already exists!");
+
+                        break;
+                    }
 
                     System.out.println("Enter Title: ");
                     String title = scanner.nextLine();
+                    if (title.isBlank()) {
+
+                        System.out.println("Title cannot be empty!");
+
+                        break;
+                    }
 
                     System.out.println("Enter Author: ");
                     String author = scanner.nextLine();
+                    if (author.isBlank()) {
+
+                        System.out.println("Author cannot be empty!");
+
+                        break;
+                    }
+
+
 
                     Book newBook = new Book(id, title, author);
 
@@ -152,6 +180,8 @@ public class Main {
                 default:
 
                     System.out.println("Invalid Choice!");
+
+                    break;
             }
         }
     }
